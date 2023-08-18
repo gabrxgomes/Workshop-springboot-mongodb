@@ -3,6 +3,13 @@ package com.backend.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+/*para indicar que essa clase user corresponde a uma coleção do 
+ * mongodb devemos usar a anotação @Document*/
+@Document(collection="user")
 public class User implements Serializable {
 	
 	//colocamos o serializable para transformar nossos dados em bytes para os mesmos serem gravados 
@@ -12,6 +19,8 @@ public class User implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L; //colocamos isso junto com o serializable (erro amarelo)
+	
+	@Id
 	private	String id;	
 	private String name;
 	private String email;
